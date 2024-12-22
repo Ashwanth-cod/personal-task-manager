@@ -1,7 +1,8 @@
 # Simplified Personal Task Manager
 
 ## 1. Project Description
-A PHP and MySQL-based **Personal Task Manager** designed for easy task creation and tracking. It focuses on core features and a clean user interface for beginner-friendly usage.
+A PHP and MySQL-based **Personal Task Manager** designed for easy task creation and tracking.
+It focuses on core features and a clean user interface for beginner-friendly usage.
 
 ---
 
@@ -110,5 +111,6 @@ A PHP and MySQL-based **Personal Task Manager** designed for easy task creation 
 
 ---
 
-This simplified task manager avoids complex functionalities while maintaining the essential features required for efficient task management. Let me know if further assistance is needed!
+This simplified task manager avoids complex functionalities while maintaining the essential features required
+for efficient task management. Let me know if further assistance is needed!
 
