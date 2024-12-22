@@ -1,0 +1,114 @@
+# Simplified Personal Task Manager
+
+## 1. Project Description
+A PHP and MySQL-based **Personal Task Manager** designed for easy task creation and tracking. It focuses on core features and a clean user interface for beginner-friendly usage.
+
+---
+
+## 2. Key Features
+
+### **Task Management**
+- **Create, Edit, Delete Tasks**: Easily add new tasks, update details, or remove outdated ones.
+- **Categorization**:
+  - Categories: Create basic categories like "Work," "Home," or "Miscellaneous."
+- **Task Priority and Deadlines**:
+  - Assign priorities (High, Medium, Low) to tasks.
+  - Set due dates.
+- **Status Updates**:
+  - Track progress using statuses like "Pending," "In Progress," and "Completed."
+
+### **Search and Filter**
+- Find tasks using keyword searches.
+- Filter tasks by:
+  - Status (e.g., Completed, Pending).
+  - Category.
+  - Due Date.
+
+### **Dashboard Overview**
+- Display an overview of user activity:
+  - Total tasks created.
+  - Pending and completed tasks.
+
+### **Responsive Design**
+- Suitable for both desktop and mobile devices.
+
+---
+
+## 3. Database Design
+
+### Users Table:
+| Column Name  | Type         | Description                       |
+|--------------|--------------|-----------------------------------|
+| `id`         | INT (PK)     | Primary key.                     |
+| `username`   | VARCHAR(50)  | Unique username for login.        |
+| `email`      | VARCHAR(100) | User email for login.             |
+| `password`   | VARCHAR(255) | Hashed password for security.     |
+| `created_at` | TIMESTAMP    | User registration timestamp.      |
+
+### Tasks Table:
+| Column Name  | Type         | Description                       |
+|--------------|--------------|-----------------------------------|
+| `id`         | INT (PK)     | Primary key.                     |
+| `user_id`    | INT (FK)     | Linked to the `users.id`.         |
+| `title`      | VARCHAR(255) | Task title.                      |
+| `description`| TEXT         | Description of the task.          |
+| `category`   | VARCHAR(50)  | Category of the task.             |
+| `priority`   | ENUM         | Priority: High, Medium, Low.      |
+| `status`     | ENUM         | Status: Pending, In Progress, Completed. |
+| `due_date`   | DATE         | Deadline for the task.            |
+| `created_at` | TIMESTAMP    | Timestamp for creation.           |
+
+### Categories Table (Optional):
+| Column Name  | Type         | Description                       |
+|--------------|--------------|-----------------------------------|
+| `id`         | INT (PK)     | Primary key.                     |
+| `name`       | VARCHAR(50)  | Name of the category.             |
+
+---
+
+## 4. Application Workflow
+
+### **User Authentication**
+1. Users register with an email and password.
+2. Login system with secure session handling.
+3. Password hashing using PHP functions.
+
+### **Task Operations**
+1. **Add Task**:
+   - Form with fields for title, description, category, priority, status, and due date.
+2. **Edit Task**:
+   - Update task details.
+3. **Delete Task**:
+   - Remove a task permanently.
+
+### **Dashboard Overview**
+- Graphical representation of task counts (e.g., Pending vs. Completed).
+
+### **Filters and Search**
+1. Use dropdowns for filtering by category, status, or priority.
+2. Provide a search bar to find tasks by keywords.
+
+---
+
+## 5. Tools and Technologies
+- **Backend**: PHP (Core PHP, no frameworks for simplicity).
+- **Database**: MySQL for storing user and task data.
+- **Frontend**:
+  - HTML/CSS for basic design.
+  - JavaScript for interactivity.
+- **Server Requirements**:
+  - Apache or Nginx with PHP support.
+  - MySQL database.
+
+---
+
+## 6. Hosting and Deployment
+1. Use a domain that supports PHP and MySQL.
+2. Create the database using the provided schema.
+3. Upload PHP files and link them to the database.
+4. Test features to ensure the task manager works as intended.
+
+---
+
+This simplified task manager avoids complex functionalities while maintaining the essential features required for efficient task management. Let me know if further assistance is needed!
+
