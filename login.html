@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .form-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            outline: none;
+            font-size: 1em;
+            transition: all 0.3s ease-in-out;
+        }
+        .input-group input:focus {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+        }
+        .btn {
+            padding: 12px;
+            width: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: linear-gradient(90deg, #764ba2, #667eea);
+        }
+        .links {
+            margin-top: 15px;
+        }
+        .links p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #ddd;
+        }
+        .links a {
+            color: #ffdf7e;
+            font-weight: bold;
+            font-size: 0.9em;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Form -->
+    <div class="container">
+        <h1 class="form-title">Login</h1>
+        <form method="post" action="login.php">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" id="username" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+            </div>
+            <input type="submit" class="btn" value="Login" name="login">
+        </form>
+        <div class="links">
+            <p>Don't have an account? <a href="register.html">Register Here</a></p>
+        </div>
+    </div>
+</body>
+</html>
