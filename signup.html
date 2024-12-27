@@ -140,9 +140,17 @@
 </head>
 <body>
     <!-- Registration Form -->
-    <div class="container" id="signup" style="display: none;">
+    <div class="container" id="signup">
         <h1 class="form-title">Sign Up</h1>
         <form method="post" action="register.php">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="fname" id="fanem" placeholder="First Name" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="lname" id="lname" placeholder="Last Name">
+            </div>
             <div class="input-group">
                 <i class="fas fa-user"></i>
                 <input type="text" name="signup_username" id="signup_username" placeholder="Username" required>
@@ -157,52 +165,6 @@
             <p>Already Have an Account?</p>
             <button id="signInButton">Sign In</button>
         </div>
-        <form method="post" action="login.php">
     </div>
-
-    <!-- Login Form -->
-    <div class="container active" id="signIn">
-        <h1 class="form-title">Sign In</h1>
-            <div class="input-group">
-                <i class="fas fa-user"></i>
-                <input type="text" name="signin_username" id="signin_username" placeholder="Username" required>
-            </div>
-            <div class="input-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" name="signin_password" id="signin_password" placeholder="Password" required>
-            </div>
-            <input type="submit" class="btn" value="Sign In" name="signIn">
-        </form>
-        <div class="links">
-            <p>Don't Have an Account Yet?</p>
-            <button id="signUpButton">Sign Up</button>
-        </div>
-    </div>
-
-    <script>
-        // Toggle between forms with smooth transitions
-        const signupForm = document.getElementById('signup');
-        const signinForm = document.getElementById('signIn');
-        const signUpButton = document.getElementById('signUpButton');
-        const signInButton = document.getElementById('signInButton');
-
-        signUpButton.addEventListener('click', () => {
-            signinForm.classList.remove('active');
-            signupForm.classList.add('active');
-            setTimeout(() => {
-                signinForm.style.display = 'none';
-                signupForm.style.display = 'block';
-            }, 300);
-        });
-
-        signInButton.addEventListener('click', () => {
-            signupForm.classList.remove('active');
-            signinForm.classList.add('active');
-            setTimeout(() => {
-                signupForm.style.display = 'none';
-                signinForm.style.display = 'block';
-            }, 300);
-        });
-    </script>
 </body>
 </html>

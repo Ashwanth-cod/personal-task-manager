@@ -154,34 +154,8 @@
         </form>
         <div class="links">
             <p>Don't Have an Account Yet?</p>
-            <button id="signUpButton">Sign Up</button>
+            <a href="signup.html"><button id="signUpButton">Sign Up</button></a>
         </div>
-    </div>
-
-    <script>
-        // Toggle between forms with smooth transitions
-        const signupForm = document.getElementById('signup');
-        const signinForm = document.getElementById('signIn');
-        const signUpButton = document.getElementById('signUpButton');
-        const signInButton = document.getElementById('signInButton');
-
-        signUpButton.addEventListener('click', () => {
-            signinForm.classList.remove('active');
-            signupForm.classList.add('active');
-            setTimeout(() => {
-                signinForm.style.display = 'none';
-                signupForm.style.display = 'block';
-            }, 300);
-        });
-
-        signInButton.addEventListener('click', () => {
-            signupForm.classList.remove('active');
-            signinForm.classList.add('active');
-            setTimeout(() => {
-                signupForm.style.display = 'none';
-                signinForm.style.display = 'block';
-            }, 300);
-        });
-    </script>
+</div>
 </body>
 </html>
