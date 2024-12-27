@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register & Login</title>
+    <title>Register - Taskio</title>
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -18,26 +18,33 @@
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: #fff;
         }
+
         .container {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 500px;
+            width: 90%;
+            max-width: 400px;
             text-align: center;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
+
         .form-title {
             font-size: 2em;
             margin-bottom: 20px;
             color: #fff;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
+
         .input-group {
             margin-bottom: 20px;
             position: relative;
         }
+
         .input-group input {
             width: 80%;
             padding: 12px 15px 12px 40px;
@@ -49,9 +56,13 @@
             font-size: 1em;
             transition: all 0.3s ease-in-out;
         }
+
         .input-group input:focus {
             background: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
         }
+
         .input-group i {
             position: absolute;
             left: 15px;
@@ -59,6 +70,7 @@
             transform: translateY(-50%);
             color: #fff;
         }
+
         .btn {
             padding: 12px;
             width: 100%;
@@ -70,42 +82,59 @@
             font-size: 1em;
             font-weight: bold;
             text-transform: uppercase;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
         }
+
         .btn:hover {
             background: linear-gradient(90deg, #764ba2, #667eea);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+
         .links {
             margin-top: 15px;
         }
+
         .links p {
             margin: 5px 0;
             font-size: 0.9em;
             color: #ddd;
         }
+
         .links button {
-            border: none;
-            background: none;
             color: #ffdf7e;
             font-weight: bold;
-            cursor: pointer;
             font-size: 0.9em;
+            background: none;
+            border: none;
+            cursor: pointer;
             text-decoration: underline;
-        }
-        .or {
-            margin: 20px 0;
-            font-size: 0.9em;
-            color: #eee;
-        }
-        .icons i {
-            margin: 0 10px;
-            cursor: pointer;
-            font-size: 1.4em;
-            color: #ddd;
             transition: color 0.3s ease;
         }
-        .icons i:hover {
-            color: #ffdf7e;
+
+        .links button:hover {
+            color: #fff;
+        }
+
+        .container.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 480px) {
+            .form-title {
+                font-size: 1.5em;
+            }
+
+            .input-group input {
+                padding: 10px 10px 10px 35px;
+                font-size: 0.9em;
+            }
+
+            .btn {
+                padding: 10px;
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
@@ -116,11 +145,11 @@
         <form method="post" action="register.php">
             <div class="input-group">
                 <i class="fas fa-user"></i>
-                <input type="text" name="username" id="username" placeholder="Username" required>
+                <input type="text" name="signup_username" id="signup_username" placeholder="Username" required>
             </div>
             <div class="input-group">
                 <i class="fas fa-lock"></i>
-                <input type="password" name="password" id="password" placeholder="Password" required>
+                <input type="password" name="signup_password" id="signup_password" placeholder="Password" required>
             </div>
             <input type="submit" class="btn" value="Sign Up" name="signUp">
         </form>
@@ -128,19 +157,19 @@
             <p>Already Have an Account?</p>
             <button id="signInButton">Sign In</button>
         </div>
+        <form method="post" action="login.php">
     </div>
 
     <!-- Login Form -->
-    <div class="container" id="signIn">
+    <div class="container active" id="signIn">
         <h1 class="form-title">Sign In</h1>
-        <form method="post" action="login.php">
             <div class="input-group">
                 <i class="fas fa-user"></i>
-                <input type="text" name="username" id="username" placeholder="Username" required>
+                <input type="text" name="signin_username" id="signin_username" placeholder="Username" required>
             </div>
             <div class="input-group">
                 <i class="fas fa-lock"></i>
-                <input type="password" name="password" id="password" placeholder="Password" required>
+                <input type="password" name="signin_password" id="signin_password" placeholder="Password" required>
             </div>
             <input type="submit" class="btn" value="Sign In" name="signIn">
         </form>
@@ -151,20 +180,28 @@
     </div>
 
     <script>
-        // Toggle between sign up and sign in forms
+        // Toggle between forms with smooth transitions
         const signupForm = document.getElementById('signup');
         const signinForm = document.getElementById('signIn');
         const signUpButton = document.getElementById('signUpButton');
         const signInButton = document.getElementById('signInButton');
 
         signUpButton.addEventListener('click', () => {
-            signinForm.style.display = 'none';
-            signupForm.style.display = 'block';
+            signinForm.classList.remove('active');
+            signupForm.classList.add('active');
+            setTimeout(() => {
+                signinForm.style.display = 'none';
+                signupForm.style.display = 'block';
+            }, 300);
         });
 
         signInButton.addEventListener('click', () => {
-            signupForm.style.display = 'none';
-            signinForm.style.display = 'block';
+            signupForm.classList.remove('active');
+            signinForm.classList.add('active');
+            setTimeout(() => {
+                signupForm.style.display = 'none';
+                signinForm.style.display = 'block';
+            }, 300);
         });
     </script>
 </body>
