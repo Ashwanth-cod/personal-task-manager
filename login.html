@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - taskio</title>
+    <title>Login - Taskio</title>
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -28,9 +28,6 @@
             width: 90%;
             max-width: 400px;
             text-align: center;
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         .form-title {
@@ -59,7 +56,6 @@
 
         .input-group input:focus {
             background: rgba(255, 255, 255, 0.3);
-            color: #fff;
             box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
         }
 
@@ -115,12 +111,6 @@
             color: #fff;
         }
 
-        .container.active {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* Responsive Adjustments */
         @media (max-width: 480px) {
             .form-title {
                 font-size: 1.5em;
@@ -139,23 +129,23 @@
     </style>
 </head>
 <body>
-    <!-- Login Form -->
-    <div class="container active" id="signIn">
-        <h1 class="form-title">Sign In</h1>
+    <div class="container">
+        <h1 class="form-title">Login</h1>
+        <form action="login.php" method="post">
             <div class="input-group">
                 <i class="fas fa-user"></i>
-                <input type="text" name="signin_username" id="signin_username" placeholder="Username" required>
+                <input type="text" name="username" id="username" placeholder="Username" aria-label="Username" required>
             </div>
             <div class="input-group">
                 <i class="fas fa-lock"></i>
-                <input type="password" name="signin_password" id="signin_password" placeholder="Password" required>
+                <input type="password" name="password" id="password" placeholder="Password" aria-label="Password" required>
             </div>
-            <input type="submit" class="btn" value="Sign In" name="signIn">
+            <input type="submit" class="btn" value="Login">
         </form>
         <div class="links">
-            <p>Don't Have an Account Yet?</p>
-            <a href="signup.html"><button id="signUpButton">Sign Up</button></a>
+            <p>Don't have an account?</p>
+            <a href="register.html">Sign Up</a>
         </div>
-</div>
+    </div>
 </body>
 </html>

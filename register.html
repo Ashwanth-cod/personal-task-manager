@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Taskio</title>
+    <title>Sign Up - Taskio</title>
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -100,18 +100,15 @@
             color: #ddd;
         }
 
-        .links button {
+        .links a {
             color: #ffdf7e;
             font-weight: bold;
             font-size: 0.9em;
-            background: none;
-            border: none;
-            cursor: pointer;
             text-decoration: underline;
             transition: color 0.3s ease;
         }
 
-        .links button:hover {
+        .links a:hover {
             color: #fff;
         }
 
@@ -139,31 +136,34 @@
     </style>
 </head>
 <body>
-    <!-- Registration Form -->
-    <div class="container" id="signup">
+    <div class="container active" id="signUp">
         <h1 class="form-title">Sign Up</h1>
-        <form method="post" action="register.php">
+        <form action="register.php" method="post">
             <div class="input-group">
                 <i class="fas fa-user"></i>
-                <input type="text" name="fname" id="fanem" placeholder="First Name" required>
+                <input type="text" name="first_name" id="first_name" placeholder="First Name" aria-label="First Name" required>
             </div>
             <div class="input-group">
                 <i class="fas fa-user"></i>
-                <input type="text" name="lname" id="lname" placeholder="Last Name">
+                <input type="text" name="last_name" id="last_name" placeholder="Last Name" aria-label="Last Name" required>
             </div>
             <div class="input-group">
                 <i class="fas fa-user"></i>
-                <input type="text" name="signup_username" id="signup_username" placeholder="Username" required>
+                <input type="text" name="username" id="username" placeholder="Username" aria-label="Username" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="email" id="email" placeholder="Email" aria-label="Email" required>
             </div>
             <div class="input-group">
                 <i class="fas fa-lock"></i>
-                <input type="password" name="signup_password" id="signup_password" placeholder="Password" required>
+                <input type="password" name="password" id="password" placeholder="Password" aria-label="Password" required>
             </div>
-            <input type="submit" class="btn" value="Sign Up" name="signUp">
+            <input type="submit" class="btn" value="Sign Up">
         </form>
         <div class="links">
             <p>Already Have an Account?</p>
-            <button id="signInButton">Sign In</button>
+            <a href="login.html">Sign In</a>
         </div>
     </div>
 </body>
